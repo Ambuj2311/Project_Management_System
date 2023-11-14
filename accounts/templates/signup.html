@@ -1,0 +1,83 @@
+<html lang="en">
+{% load static %}
+
+
+<head>
+    <title>signup</title>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <style>
+        .outer {
+            height: 605px;
+            width: 100%;
+            background-image: url("{% static 'images/img2.jpg' %}");
+            border: 1px solid black;
+            background-size: cover;
+        }
+
+        .outer1 {
+            height: 605px;
+            width: 100%;
+        }
+
+        .one1 {
+
+            height: 400px;
+            width: 400px;
+            margin: 70px auto;
+            box-shadow: 2px 2px 10px 2px black;
+            padding: 40px 90px;
+            box-sizing: border-box;
+
+        }
+        .sub
+{
+    margin: 10px 80px;
+    font-size: 18px;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.inp
+{
+    font-size: 18px;
+    color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid outer">
+        <div class="row outer1">
+            <div class="col-sm-4 one1">
+                <div class="log">
+                    <h2 style="color: green; text-align: center; font-family: 'Times New Roman', Times, serif;">Create Account!!</h2>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="inp">
+                        Enter Your Username:- <br>
+                        {{ form.username }}</div>
+                        <div class="inp">
+                            Enter Your Email Address:- <br>
+                            {{ form.email }}</div>
+                    <div class="inp">
+                        <div class="inp">
+                            Confirm Your Email:- <br>
+                            {{ form.email2 }}</div>
+                        Create your Password:- <br>
+                        {{ form.password }}</div>
+                    <input class="sub" type="submit" value="create" />
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

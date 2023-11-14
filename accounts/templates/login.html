@@ -1,0 +1,88 @@
+<html>
+{% load static %}
+{% load widget_tweaks %}
+<head>
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</head>
+<style>
+
+.one1
+{
+
+    height: 400px;
+    width: 400px;
+    margin:70px auto;
+    box-shadow: 2px 2px 10px 2px black ;
+    padding: 50px 90px;
+    box-sizing: border-box;
+}
+.outer
+{
+    height: 605px;
+    width: 100%;
+    background-size: cover;
+    background-image: url('static/images/img2.jpg');
+    border: 1px solid black;
+}
+.inp
+{
+    font-size: 18px;
+    color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.sub
+{
+    margin: 10px 80px;
+    font-size: 18px;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.crt
+{
+    margin: 10px 60px;
+    font-size: 18px;
+    background-color: #051f37;
+    border: none;
+    color: azure;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 2px black ;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+</style>
+
+<body>
+    <div class="container-fluid outer">
+       
+        <div class="col-sm-4 one1">
+            <div class="log">
+                <h2 style="color: green; text-align: center; font-family: 'Times New Roman', Times, serif;">Login Here!!</h2>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="inp">
+                    Username:- <br>
+                    {{ form.username }}</div>
+                <div class="inp">
+                    Password:- <br>
+                    {{ form.password }}</div>
+                
+              
+                <input class="sub" type="submit" value="Submit" name="login" />
+
+                <br><br>
+                
+            </form>
+            <p style="color: red; text-align: center;" >Don't have account?<button onclick="window.location.href = '/accounts/register';" class="crt">Create now</button></p>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+<html>
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</head>
+<style>
+    .outer {
+        height: 605px;
+        width: 100%;
+        background-image: url("{% static 'images/img2.jpg' %}");
+        border: 1px solid black;
+        background-size: cover;
+    }
+
+    .one1 {
+
+        min-height: max-content;
+        width: 500px;
+        margin: 100px auto;
+        box-shadow: 2px 2px 10px 2px black;
+        padding: 10px 80px;
+        box-sizing: border-box;
+
+    }
+
+    .btn-danger {
+        margin: 10px 50px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+
+    .crt {
+        margin: 10px 10px;
+        min-width: 100px;
+        font-size: 18px;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+
+    .sub {
+        margin: 10px 150px;
+        font-size: 18px;
+        background-color: green;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:link {
+        color: #000000;
+    }
+
+    /* unvisited link is black*/
+    a:visited {
+        color: #000000;
+    }
+
+    /* visited link is black (reverse the color back to black)*/
+    a:hover {
+        color: red;
+    }
+
+    /* mouse over link (red when mouse over)*/
+    a:active {
+        color: #0000FF;
+    }
+
+    /* selected link (blue in the split second which you loading the page.)*/
+</style>
+
+<body>
+    <div class="container-fluid outer">
+        <div class="col-sm-4 one1">
+            <h3
+                style="color: green; text-align: center; font-family: 'Times New Roman', Times, serif; font-weight: bold;">
+                Created Project</h3>
+            {% for task_object in all_tasks_objects %}
+            <li><a href="{% url 'task_edit' task_object.id %}" class="btn btn crt">{{ task_object.task_title }} </a>
+                <a href="{% url 'task_delete' task_object.id %}" class="btn btn-danger">Delete</a>
+            </li>
+            {% endfor %}
+            <br>
+            <button onclick="window.location.href = '/home';" class="sub">Back</button>
+        </div>
+    </div>
+</body>
+
+</html>

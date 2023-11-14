@@ -1,0 +1,77 @@
+<html>
+    {% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+<style>
+     .outer {
+        height: 605px;
+        width: 100%;
+        background-image: url("{% static 'images/img2.jpg' %}");
+        border: 1px solid black;
+        background-size: cover;
+    }
+
+    .one1 {
+
+        min-height: max-content;
+        width: 350px;
+        margin: 100px auto;
+        box-shadow: 2px 2px 10px 2px black;
+        padding: 10px 80px;
+        box-sizing: border-box;
+        color: white;
+
+    }
+
+    .btn-danger,.btn-success {
+        margin: 10px 10px;
+        font-size: 18px;
+        height: 30px;
+        line-height: 20px;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+
+    .crt {
+        margin: 10px 10px;
+        min-width: 100px;
+        font-size: 18px;
+        background-color: white;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+
+    .sub {
+        margin: 10px 10px 0px 80px ;
+        font-size: 18px;
+        background-color: green;
+        border: none;
+        border-radius: 10px;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+a{text-decoration: none;}
+a:link {color:#000000;}    /* unvisited link is black*/
+a:visited {color:#000000;} /* visited link is black (reverse the color back to black)*/
+a:hover {color:#0000FF;}   /* mouse over link (blue when mouse over)*/
+a:active {color:#0000FF;}  /* selected link (blue in the split second which you loading the page.)*/
+</style>
+</head>
+<body>
+{% block content %}
+<div class="outer">
+    <div class="one1">
+    <form action="" method="POST">{% csrf_token %}
+        Do you want to delete this comment?
+        <p><input class="btn btn-success" type="submit" value="Yes" /> <a href="{% url 'task_edit' task_object.id  %}" class="btn btn-danger">Cancel</a> </p>
+    </form>
+    </div>
+    </div>
+{% endblock %}
+</body>
+</html>
